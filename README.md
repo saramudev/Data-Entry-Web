@@ -10,8 +10,10 @@ This is a simple data entry web application built with HTML, CSS, and JavaScript
 - Table of all previous submissions (stored locally in browser)
 - Simple and clean UI
 #Setup:
-1. Clone this repository:
+Setup and Run Instructions:
 
-```bash
-git clone https://github.com/USERNAME/data-entry-app.git
-cd data-entry-app
+1. Clone or download the repository.
+2. Open the `index.html` file in your web browser to start.
+3. Fill out the form and submit.
+4. You will be redirected to a confirmation page showing your submitted data and previous entries.
+
