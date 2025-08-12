@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Confirmation</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Submission Confirmation</h1>
+    <div id="confirmationData"></div>
+    <h2>Previous Submissions</h2>
+    <table id="entriesTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Title</th>
+          <th>Hometown</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Entries populated -->
+      </tbody>
+    </table>
+  </div>
+  <script>
+    const confirmationData = JSON.parse(localStorage.getItem("lastEntry"));
+    const allEntries = JSON.parse(localStorage.getItem("entries")) || [];
+
+    const dataDiv = document.getElementById("confirmationData");
+    dataDiv.innerHTML = `
+      <p><strong>Name:</strong> ${confirmationData.name}</p>
+      <p><strong>Age:</strong> ${confirmationData.age || "N/A"}</p>
+      <p><strong>Title:</strong> ${confirmationData.title}</p>
+      <p><strong>Hometown:</strong> ${confirmationData.hometown || "N/A"}</p>
+    `;
+
+    const tableBody = document.querySelector("#entriesTable tbody");
+    allEntries.forEach(entry => {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${entry.name}</td>
+        <td>${entry.age || "N/A"}</td>
+        <td>${entry.title}</td>
+        <td>${entry.hometown || "N/A"}</td>
+      `;
+      tableBody.appendChild(row);
+    });
+  </script>
+</body>
+</html>
